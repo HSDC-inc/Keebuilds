@@ -16,6 +16,7 @@ import FormControl from '@mui/material/FormControl';
 import FormLabel from '@mui/material/FormLabel';
 import TextField from '@mui/material/TextField';
 import '../scss/styles.scss';
+import { useSelector } from 'react-redux';
 
 // stepper labels
 const steps = ['Case', 'PCB', 'Plate', 'Switches', 'Keycaps', 'Build'];
@@ -76,7 +77,7 @@ const StartBuild = () => {
     setValue('');
     setActiveStep(activeStep + 1);
   };
-
+  const username = useSelector(state => state.setUser.username);
   // having post request in handleNext doesnt catch last keycap value since state is set once the handleNext function ends
   React.useEffect(() => {
     // check to have post request run only for completed select
@@ -90,7 +91,8 @@ const StartBuild = () => {
           keycap: build[4],
           name: build[5],
           color: 'blue',
-          session: 0
+          session: 0,
+          username: username
         });
 
       console.log('POST REQUEST: ', {
@@ -101,14 +103,9 @@ const StartBuild = () => {
         keycap: build[4],
         name: build[5],
         color: 'blue',
-        session: 0
+        session: 0,
+        username: username
       });
-      // get request test
-      // const fetchBuilds = async () => {
-      //   const allBuilds = await axios.get('/api/session/0');
-      //   console.log('data from saved builds get request: ', allBuilds.data);
-      // };
-      // fetchBuilds();
     }
     // do not put check in parameter, will run with extra post request when build[5] changes back to ''
   }, [build[5]]);
