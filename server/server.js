@@ -3,11 +3,14 @@ const app = express();
 const path = require('path');
 const cors = require('cors');
 const PORT = process.env.PORT || 3000;
-const keebuildsController = require('./controllers/keebuildsController');
+const buildRouter = require('./routes/build.js');
+const loginRouter = require('./routes/login.js');
+const signupRouter = require('./routes/signup.js');
+
 app.use(cors());
 app.use(express.json());
 
-// serve files on production mode
+// serve files on production mode webpack related
 if (process.env.NODE_ENV !== 'development') {
   app.use('/build', express.static(path.resolve(__dirname, '../build')));
   app.get('/', (req, res) => {
@@ -16,30 +19,30 @@ if (process.env.NODE_ENV !== 'development') {
       .sendFile(path.resolve(__dirname, '../build/index.html'));
   });
 }
-const buildRouter = express.Router();
-app.use('/api', buildRouter);
 
-// Post a build to the database
-buildRouter.post('/build', keebuildsController.createBuild, (req, res) => {
-  return res.status(201).json(res.locals.dbResponse);
+app.get('/', (req,res,next)=>{
+  res.status(200).sendFile(path.join(__dirname, '/../client/index.html'));
 });
 
-//Get build from database
-buildRouter.get(
-  '/session/:id',
-  keebuildsController.getBuildsForSession,
-  (req, res) => {
-    return res.status(200).json(res.locals.builds);
-  }
-);
+app.get('/whateverwewant', (req,res,next)=>{
+  res.status(200).sendFile(path.join(__dirname, '/../build/bundle.js'));
+});
 
-buildRouter.delete(
-  '/build/:id',
-  keebuildsController.deleteBuild,
-  (req, res) => {
-    return res.status(204).send();
-  }
-);
+
+app.use('/api/login', loginRouter) // we have to check if a user exists in the database
+
+app.use('/api/signup', signupRouter) // createa a user and insert into data base
+
+app.use('/api', buildRouter); //
+
+
+
+
+
+
+
+
+
 
 // catch all handler for all unknown routes
 app.use((req, res) => {
