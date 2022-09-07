@@ -4,11 +4,10 @@ const path = require('path');
 const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const buildRouter = require('./routes/build.js');
-const loginRouter = require('./routes/login.js');
-const signupRouter = require('./routes/signup.js');
 
 app.use(cors());
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // serve files on production mode webpack related
 if (process.env.NODE_ENV !== 'development') {
@@ -19,19 +18,18 @@ if (process.env.NODE_ENV !== 'development') {
       .sendFile(path.resolve(__dirname, '../build/index.html'));
   });
 }
-
+// serving html to localhost:3000
 app.get('/', (req,res,next)=>{
   res.status(200).sendFile(path.join(__dirname, '/../client/index.html'));
 });
-
 app.get('/whateverwewant', (req,res,next)=>{
   res.status(200).sendFile(path.join(__dirname, '/../build/bundle.js'));
 });
 
 
-app.use('/api/login', loginRouter) // we have to check if a user exists in the database
+// app.use('/api/login', loginRouter); // we have to check if a user exists in the database
 
-app.use('/api/signup', signupRouter) // createa a user and insert into data base
+// app.use('/api/signup', signupRouter); // createa a user and insert into data base
 
 app.use('/api', buildRouter); //
 

@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'; 
 import { changeUserState, setUsername } from '../redux/userSlice';
+import axios from "axios";
 
 function Signup() {
   const [ message, setMessage ] = useState('Sign Up Here!');
@@ -12,21 +13,26 @@ function Signup() {
   const dispatch = useDispatch();
 
   const handleSubmit = () => {
-    fetch('/api/signup', {
-      method: 'POST', // or 'PUT'
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: {
-        username: document.getElementById('user1').value,
-        password: document.getElementById('pass1').value
-      },
+    axios.post('/api/signup', {
+      username: document.getElementById('user1').value,
+      password: document.getElementById('pass1').value
     })
-      .then((response) => {
-        response.json();
-      })
+    //their original
+    // fetch('/api/signup', {
+    //   method: 'POST', // or 'PUT'
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //   },
+    //   body: {
+    //     username: document.getElementById('user1').value,
+    //     password: document.getElementById('pass1').value
+    //   },
+    // })
+      // .then((response) => {
+      //   response.json();
+      // })
       .then(verdict => {
-        if (verdict) { //if user exists, navigate to homepage
+        if (verdict.data.isLogged) { //if user exists, navigate to homepage
           dispatch(changeUserState());
           dispatch(setUsername(document.getElementById('user1').value));
           return navToHome();
@@ -46,8 +52,8 @@ function Signup() {
       <form>
         USERNAME: <input type="text" id="user1" name="username" /><br/>
         PASSWORD: <input type="text" id="pass1" name="password" />
+        <Button onClick={handleSubmit}>SUBMIT</Button>
       </form>
-      <Button onClick={handleSubmit}>SUBMIT</Button>
       <h2>{message}</h2>
       <Link to='/'><Button>Back to Landing Page</Button></Link>
     </div>
