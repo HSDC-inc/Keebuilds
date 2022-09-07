@@ -10,7 +10,9 @@ const errorCreator = (methodName, description) => ({
 });
 
 loginSignupController.getUser = async (req, res, next) => {
-  const { username, password } = req.body;
+  const { username, password } = req.query;
+  console.log('checkingpostmanrequest',username, password)
+
   // const salt = await bcrypt.genSalt(Number(SALT)); //hashing password via encrypting
   // const hashPassword = await bcrypt.hash(password, salt); //you are sending the password. We are hashing password received from req.body with salt.
 
@@ -38,8 +40,12 @@ loginSignupController.getUser = async (req, res, next) => {
 loginSignupController.createUser = async (req, res, next) => {
   const { username, password } = req.body;
   const command = `SELECT username FROM users WHERE username='${username}';`;
+
+  console.log('can you see me')
   try {
     const user = await db.query(command);
+    console.log(user,'logging user in middleware function')
+
     if (user.rows.length) { //Checks if database has username
       res.locals.isLogged = { isLogged: false };
       return next();
@@ -47,7 +53,9 @@ loginSignupController.createUser = async (req, res, next) => {
       const salt = await bcrypt.genSalt(Number(SALT)); //hashing password via encrypting
       const hashPassword = await bcrypt.hash(password, salt); //you are sending the password. We are hashing password received from req.body with salt.
       const newUserCommand = `INSERT INTO users (username, password) VALUES ('${username}', '${hashPassword}');`;
-      db.query(newUserCommand);
+
+      await db.query(newUserCommand);
+
       res.locals.isLogged = { isLogged: true };
       return next();
     }
@@ -57,10 +65,5 @@ loginSignupController.createUser = async (req, res, next) => {
   }
 
 };
-
-
-
-
-
 
 module.exports = loginSignupController;

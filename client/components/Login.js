@@ -17,7 +17,8 @@ function Login() {
       .then(response => response.json())
       //true if user exists in database, false if user does not
       .then(verdict => {
-        if (verdict) { //if user exists, navigate to homepage
+        console.log('login verdict',verdict)
+        if (verdict.isLogged) { //if user exists, navigate to homepage
         //set username and isLoggedIn into redux state
           dispatch(changeUserState());
           dispatch(setUsername(document.getElementById('user1').value));
