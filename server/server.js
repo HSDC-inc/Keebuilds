@@ -37,11 +37,6 @@ app.use('/api', buildRouter); //
 
 
 
-
-
-
-
-
 // catch all handler for all unknown routes
 app.use((req, res) => {
   res.status(404).send('404');
