@@ -12,10 +12,14 @@ const SavedBuildsButton = () => {
     // redirect to saved builds page
   };
 
+//<Button sx={{ width: '200px', color: 'rgb(65, 91, 152)' }} variant="outlined">Saved Keebs</Button>
+//<Button onClick={handleSubmit}><div className='landingLoginButton'>SUBMIT</div></Button>
+
+
   return (
     <div className="savedBuildsButton">
       <Link to="/savedKeebs">
-        <Button sx={{ width: '200px', color: 'rgb(65, 91, 152)' }} variant="outlined">Saved Keebs</Button>
+        <Button ><div className='landingLoginButton'>SAVED KEEBS</div></Button>
       </Link>
     </div>
   );

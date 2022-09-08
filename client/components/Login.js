@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import Button from '@mui/material/Button';
+import { Box, Button, Avatar, TextField, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch } from 'react-redux'; 
@@ -17,7 +17,7 @@ function Login() {
       .then(response => response.json())
       //true if user exists in database, false if user does not
       .then(verdict => {
-        console.log('login verdict',verdict)
+        console.log('login verdict',verdict);
         if (verdict.isLogged) { //if user exists, navigate to homepage
         //set username and isLoggedIn into redux state
           dispatch(changeUserState());
@@ -31,18 +31,18 @@ function Login() {
   };
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-        LOGIN: 
-      <form>
-        USERNAME: <input type="text" id="user1" name="username" /><br/>
-        PASSWORD: <input type="text" id="pass1" name="password" />
-      
-      
-        <Button onClick={handleSubmit}>SUBMIT</Button>
-      </form>
-      <h2>{message}</h2>
-      <Link to='/'><Button>Back to Landing Page</Button></Link>
-    </div>
+    <section className='logSection'>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <h2 className='landingLogo2'>{message}</h2>
+  
+        <form>
+            USERNAME: <input type="text" id="user1" name="username" /><br/>
+            PASSWORD: <input type="password" id="pass1" name="password" />
+          <Button onClick={handleSubmit}><div className='landingLoginButton'>SUBMIT</div></Button>
+        </form>
+        <h3>Don't have an account? Sign up <a href='/signup'>here</a></h3>
+      </div>
+    </section>
   );
 }
 

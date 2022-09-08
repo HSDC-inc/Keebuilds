@@ -17,20 +17,6 @@ function Signup() {
       username: document.getElementById('user1').value,
       password: document.getElementById('pass1').value
     })
-    //their original
-    // fetch('/api/signup', {
-    //   method: 'POST', // or 'PUT'
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //   },
-    //   body: {
-    //     username: document.getElementById('user1').value,
-    //     password: document.getElementById('pass1').value
-    //   },
-    // })
-      // .then((response) => {
-      //   response.json();
-      // })
       .then(verdict => {
         if (verdict.data.isLogged) { //if user exists, navigate to homepage
           dispatch(changeUserState());
@@ -47,16 +33,17 @@ function Signup() {
   };
 
   return (
-    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
-    SIGN UP: 
-      <form>
-        USERNAME: <input type="text" id="user1" name="username" /><br/>
-        PASSWORD: <input type="text" id="pass1" name="password" />
-        <Button onClick={handleSubmit}>SUBMIT</Button>
-      </form>
-      <h2>{message}</h2>
-      <Link to='/'><Button>Back to Landing Page</Button></Link>
-    </div>
+    <section className='logSection'>
+      <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+        <h2 className='landingLogo2'>{message}</h2>
+        <form>
+          USERNAME: <input type="text" id="user1" name="username" /><br/>
+          PASSWORD: <input type="password" id="pass1" name="password" />
+          <Button onClick={handleSubmit}><div className='landingLoginButton'>SUBMIT</div></Button>
+        </form>
+        <h3>Already have an account? Login <a href='/login'>here</a></h3>
+      </div>
+    </section>
   );
 }
 
