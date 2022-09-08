@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../scss/styles.scss';
 import Button from '@mui/material/Button';
 import axios from 'axios';
@@ -10,8 +10,8 @@ import keyboard60 from '../assets/60keyboard.png';
 
 
 const SavedBuilds = ({builds ,setter}) => {
-  console.log({builds});
-  console.log('typeof builds is', typeof builds);
+  // console.log({builds});
+  // console.log('typeof builds is', typeof builds);
 
   const removeBox = (build_id) => {
     console.log('removing build', build_id);
@@ -54,7 +54,7 @@ const SavedBuilds = ({builds ,setter}) => {
       </div>
     );
   }
-  console.log('SavedBuilds is rendering');
+  // console.log('SavedBuilds is rendering');
   return (
     <div className="savedBuilds">
       {cards}

@@ -6,11 +6,8 @@ import Button from '@mui/material/Button';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 
-
-const fetchBuilds = async () => {
-  const username = useSelector(state => state.setUser.username);
+const fetchBuilds = async (username) => {  
   const allBuilds = await axios.get(`/api/saved?username=${username}`);
-  console.log('data from saved builds get request: ', allBuilds.data);
   return allBuilds.data;
 };
 
@@ -27,11 +24,13 @@ const SavedKeebsPage = () => {
   const [builds, setBuilds] = React.useState([]);
   const isLoggedIn = useSelector(state => state.setUser.isLoggedIn);
   const username = useSelector(state => state.setUser.username);
+
   const setter = () => {
-    fetchBuilds()
+    fetchBuilds(username)
       .then(response => {
+        console.log(JSON.stringify(response));
+        console.log(JSON.stringify(builds));
         if(JSON.stringify(response) !== JSON.stringify(builds)) {
-          console.log('Setter() has been called, so page should have refreshed')
           setBuilds(response);
         }
       });
