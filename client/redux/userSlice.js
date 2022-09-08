@@ -1,5 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
+
 const initialState = {
   username: 'fake username lol',
   isLoggedIn: false, //when application starts, defaults to false
