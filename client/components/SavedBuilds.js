@@ -29,6 +29,8 @@ const SavedBuilds = ({builds ,setter}) => {
     '60%': keyboard60,
   };
   //['60%', '65%', '75%', 'TKL', '100%'],
+  //<div className = "removeButton"><Button sx={{ width: '150px', color: 'rgb(65, 91, 152)'}} variant="outlined" onClick = {() => removeBox(build.build_id)}>Remove Build</Button></div>
+  //<Button onClick={handleSubmit}><div className='landingLoginButton'>SUBMIT</div></Button>
   const cards = [];
   for(const build of builds) {
     console.log('image source: ',typeof sizeImages[build.size]);
@@ -43,7 +45,7 @@ const SavedBuilds = ({builds ,setter}) => {
             <section>Plate: {build.plate} </section>
             <section>Switch Type: {build.switch}</section> 
             <section>Keycaps: {build.keycap}</section>
-            <div className = "removeButton"><Button sx={{ width: '150px', color: 'rgb(65, 91, 152)'}} variant="outlined" onClick = {() => removeBox(build.build_id)}>Remove Build</Button></div>
+            <div className = "removeButton"><Button onClick={() => removeBox(build.build_id)}><div className='landingLoginButton'>REMOVE BUILD</div></Button></div>
 
           </div>
           <div className="imageBox">

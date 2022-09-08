@@ -40,7 +40,7 @@ function Login() {
             PASSWORD: <input type="password" id="pass1" name="password" />
           <Button onClick={handleSubmit}><div className='landingLoginButton'>SUBMIT</div></Button>
         </form>
-        <h3>Don't have an account? Sign up <a href='/signup'>here</a></h3>
+        <h3 className='landingLogo3'>Don't have an account? Sign up <a  className='loginLink' href='/signup'>here</a></h3>
       </div>
     </section>
   );

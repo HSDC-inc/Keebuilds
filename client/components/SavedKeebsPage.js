@@ -37,16 +37,17 @@ const SavedKeebsPage = () => {
       });
   };
   setter();
+  //<Button sx={{ width: '200px', color: 'rgb(65, 91, 152)' }} variant="outlined">Back</Button>
   if (isLoggedIn) {
     return (
-      <>
-        <Link to="/Home">
-          <Button sx={{ width: '200px', color: 'rgb(65, 91, 152)' }} variant="outlined">Back</Button>
+      <div className="homeholder" >
+        <Link  to="/Home">
+          <Button ><div className='landingLoginButton'>HOME</div></Button>
         </Link>
-        <h1>Saved Builds</h1>
+        <h1 style={{marginTop:'-30px'}}>Saved Builds</h1>
         <div className='savedBuildsContainer'><SavedBuilds builds={builds} setter={setter} /></div>
 
-      </>
+      </div>
     );
   } else {
     return (

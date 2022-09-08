@@ -26,8 +26,8 @@ const HomePage = () => {
           <h2 style={{color:'white'}}>      <section className='staricon'>✦</section>welcome {username} !<section className='staricon'>✦</section></h2>
           
         </section>
-        <h1 className='logo'>KEEBUILDS HOME_</h1>
-        <img src={keylogo} id="keylogo"/>
+        <h1 className='logo'>KEEBUILDS HOME_<img src={keylogo} id="keylogo"/></h1>
+      
         <div className='startBuildButtonDiv'>
           <StartBuild />
         </div>

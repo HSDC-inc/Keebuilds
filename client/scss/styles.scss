@@ -59,13 +59,12 @@ img {
 // }
 
 h1 {
-    margin-left: 20px;
     justify-content: center;
     display: flex;
     align-items: center;
     // font-family: 'Swanky and Moo Moo', cursive;
     color: rgb(65, 91, 152);
-    font-size: 140px;
+    font-size: 125px;
     margin-block-end: 0;
     margin-block-start: 0;
 }
@@ -88,7 +87,6 @@ h1 {
 
 .removeButton{
     // float: right;
-    margin-top: 35px;
     margin-right: 0;
 }
 
@@ -98,7 +96,6 @@ h1 {
     align-items: center;
     // font-family: 'Swanky and Moo Moo', cursive;
     color: black;
-    border: 1px solid black;
     // height: 2000px;
     width:1300px;
     display: grid;
@@ -123,7 +120,29 @@ text-align: center;
 //   float: left;
 //   font-family: 'Architects Daughter', cursive;
 font-family: 'Architects Daughter', cursive;
+
 }
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+.buildBox:hover{
+    background: linear-gradient(-45deg, #ee7752, #be356a, #23a6d5, #23d5ab);
+    background-size: 200% 200%;
+	animation: gradient 5s ease infinite;
+    box-shadow: 10px 10px 2px 1px rgba(0, 0, 255, .2);
+    transform: scale(1.1);
+}
+
 .staricon{
     animation: rotate 2s linear infinite;
     display:inline-block;
@@ -159,7 +178,7 @@ font-family: 'Architects Daughter', cursive;
     font-family:'Courier New', Courier, monospace;
     text-decoration: none;
     margin: 4px;
-    box-shadow: 10px 10px 2px 1px rgba(0, 0, 255, .2);
+    box-shadow: 10px 10px 2px 1px hsla(240, 100%, 50%, 0.2);
 }
 .landingLoginButton:hover{
     background-color: #cefcec;
@@ -173,7 +192,16 @@ font-family: 'Architects Daughter', cursive;
     text-shadow: 6px 9px 8px #dab47f;
     font-size: 200%;
 }
+.loginLink{
+    text-decoration: none;
+    color: #5b5449;
+    text-shadow: 2px 2px 1px rgba(172, 172, 215, 0.974);
+}
 
+.loginLink:hover{
+    color: #dab47f;
+    text-shadow: 4px 4px 1px rgba(0, 0, 255, .2);
+}
 .landingLogo2{
     color: rgb(44, 64, 110);
     font-family: 'Press Start 2P', cursive;
@@ -181,8 +209,14 @@ font-family: 'Architects Daughter', cursive;
     font-size: 150%;
 }
 
+.landingLogo3{
+    color: rgb(44, 64, 110);
+}
+
 .logo {
     // font-size: 180px;
+    margin-left: 30px;
+    margin-top: 80px;
     color: rgb(44, 64, 110);
     font-family: 'Press Start 2P', cursive;
     text-shadow: 10px 10px 8px #dab47f;
@@ -219,6 +253,13 @@ font-family: 'Architects Daughter', cursive;
 }
 
 .savedBuildsButton{
+    a:link { text-decoration: none; };
+    a:visited { text-decoration: none; };
+    a:hover { text-decoration: none; };
+    a:active { text-decoration: none; };
+}
+
+.homeholder{
     a:link { text-decoration: none; };
     a:visited { text-decoration: none; };
     a:hover { text-decoration: none; };
@@ -266,6 +307,7 @@ font-family: 'Architects Daughter', cursive;
 }
 
 #keylogo{
+    margin-right: 80px ;
     margin-top: 20px;
     animation: rotate 10s linear infinite;
 }
