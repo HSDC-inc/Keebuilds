@@ -31,6 +31,7 @@ const SavedKeebsPage = () => {
     fetchBuilds()
       .then(response => {
         if(JSON.stringify(response) !== JSON.stringify(builds)) {
+          console.log('Setter() has been called, so page should have refreshed')
           setBuilds(response);
         }
       });

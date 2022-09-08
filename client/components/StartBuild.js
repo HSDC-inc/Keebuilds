@@ -99,7 +99,7 @@ const StartBuild = () => {
         size: build[0],
         pcb: build[1],
         plate: build[2],
-        switch: build[3],
+        switches: build[3],
         keycap: build[4],
         name: build[5],
         color: 'blue',
