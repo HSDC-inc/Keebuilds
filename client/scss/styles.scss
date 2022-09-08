@@ -9,6 +9,32 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Shadows+Into+Light&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Amatic+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+
+*{
+    font-family: 'Silkscreen', cursive;
+}
+
+body{
+    margin: 0;
+    background-color: lightsteelblue;
+}
+#root{
+    width: 100%;
+    height: 100%
+}
+#root > div{
+    width: 100%;
+    height: 100%
+}
+
+#inroot{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 
 .center {
@@ -23,7 +49,6 @@ img {
     align-items: center;
     justify-content: center;
     height: 200px;
-    position: relative;
     top: -220px;
     left: 90px;
 }
@@ -34,17 +59,20 @@ img {
 // }
 
 h1 {
+    margin-left: 20px;
     justify-content: center;
     display: flex;
     align-items: center;
-    font-family: 'Swanky and Moo Moo', cursive;
+    // font-family: 'Swanky and Moo Moo', cursive;
     color: rgb(65, 91, 152);
-    font-size: 150px;
+    font-size: 140px;
+    margin-block-end: 0;
+    margin-block-start: 0;
 }
 
 .name {
     color: rgb(65, 91, 152);
-    font-family: 'Concert One', cursive;
+    font-weight: bold;
 }
 
 .size {
@@ -60,6 +88,7 @@ h1 {
 
 .removeButton{
     // float: right;
+    margin-top: 35px;
     margin-right: 0;
 }
 
@@ -83,8 +112,9 @@ h1 {
 
 .buildBox {
   border: 1px solid black;
-  display: flex;
-  flex-direction: column;
+//   display: flex;
+//   flex-direction: row;
+text-align: center;
   white-space: initial;
   font-size: 25px;
   word-break: break-all;
@@ -94,11 +124,68 @@ h1 {
 //   font-family: 'Architects Daughter', cursive;
 font-family: 'Architects Daughter', cursive;
 }
+.staricon{
+    animation: rotate 2s linear infinite;
+    display:inline-block;
+    color:  rgb(209, 242, 180);
+    font-size: 90%;
+    text-shadow: 6px 9px 8px #dab47f;
+    border: 4px;
+}
+.bothDivs{
+    display: flex;
+    justify-content: space-evenly;
+
+}
+
+@keyframes rotate {
+    from{transform:rotateY(0deg)}
+  
+      to {transform:rotateY(360deg)}
+    
+  }
+  
+  .toto {
+      animation: rotate 6s linear infinite;
+        display:inline-block;
+  }
+
+.landingLoginButton{
+    border: 2px solid rgb(235, 177, 177);
+    border-radius: 15px;
+    background-color: rgb(209, 242, 180);
+    padding: 4px 35px;
+    color:rgb(88, 66, 66);
+    font-family:'Courier New', Courier, monospace;
+    text-decoration: none;
+    margin: 4px;
+    box-shadow: 10px 10px 2px 1px rgba(0, 0, 255, .2);
+}
+.landingLoginButton:hover{
+    background-color: #cefcec;
+    color: white;
+      
+}
+
+.landingLogo{
+    color: rgb(44, 64, 110);
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 6px 9px 8px #dab47f;
+    font-size: 200%;
+}
+
+.landingLogo2{
+    color: rgb(44, 64, 110);
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 6px 9px 8px #dab47f;
+    font-size: 150%;
+}
 
 .logo {
-    font-size: 180px;
-    color: rgb(65, 91, 152);
-    // font-family: 'Press Start 2P', cursive;
+    // font-size: 180px;
+    color: rgb(44, 64, 110);
+    font-family: 'Press Start 2P', cursive;
+    text-shadow: 10px 10px 8px #dab47f;
     // font-family: 'Gloria Hallelujah', cursive;
     // font-family: 'Concert One', cursive;
     // font-family: 'Orbitron', sans-serif;
@@ -112,22 +199,37 @@ font-family: 'Architects Daughter', cursive;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70%;
+    //height: 70%;
 }
 
 .startBuildButtonDiv {
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     height: -50%;
-    margin-top: -200px;
+    margin-top: 25px;
 }
 
 .savedBuildsButtonDiv {
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-top: -25px;
+    margin-top: 25px;
+}
+
+.savedBuildsButton{
+    a:link { text-decoration: none; };
+    a:visited { text-decoration: none; };
+    a:hover { text-decoration: none; };
+    a:active { text-decoration: none; };
+}
+
+.logoutButtonDiv {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 25px;
 }
 
 .startBuild {
@@ -135,5 +237,43 @@ font-family: 'Architects Daughter', cursive;
     justify-content: center;
     align-items: center;
     position: relative;
-    right: 135px;
+    //right: 135px;
+}
+
+.imageBox{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    max-width: 100%;
+    max-height: 100%;
+}
+
+// .navHome{
+//     display:'flex';
+//     flex-direction: row;
+//     align-items: space-around;
+//     justify-content: space-around;
+//     width: 100%;
+// }
+
+.keebPics{
+    max-width: auto;
+    max-height: auto;
+    width: 200px;
+    height: auto;
+    
+}
+
+#keylogo{
+    margin-top: 20px;
+    animation: rotate 10s linear infinite;
+}
+
+
+.logSection{
+    height:100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }

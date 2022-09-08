@@ -2,6 +2,12 @@ import React from 'react';
 import '../scss/styles.scss';
 import Button from '@mui/material/Button';
 import axios from 'axios';
+import keyboard100 from '../assets/100keyboard.png';
+import keyboard80 from '../assets/80keyboard.png';
+import keyboard75 from '../assets/75keyboard.png';
+import keyboard65 from '../assets/65keyboard.png';
+import keyboard60 from '../assets/60keyboard.png';
+
 
 const SavedBuilds = ({builds ,setter}) => {
   console.log({builds});
@@ -15,17 +21,36 @@ const SavedBuilds = ({builds ,setter}) => {
       });
   };
 
+  const sizeImages = {
+    '100%':keyboard100,
+    'TKL': keyboard80,
+    '75%': keyboard75,
+    '65%': keyboard65,
+    '60%': keyboard60,
+  };
+  //['60%', '65%', '75%', 'TKL', '100%'],
   const cards = [];
   for(const build of builds) {
+    console.log('image source: ',typeof sizeImages[build.size]);
     cards.push(
       <div className="buildBox">
-        <div className = "removeButton"><Button sx={{ width: '150px', color: 'rgb(65, 91, 152)', float:'right' }} variant="outlined" onClick = {() => removeBox(build.build_id)}>Remove Build</Button></div>
-        <div className ="name">Name: {build.name}</div> 
-        <section>Size: {build.size}</section>
-        <section>PCB: {build.pcb} </section>
-        <section>Plate: {build.plate} </section>
-        <section>Switch Type: {build.switch}</section> 
-        <section>Keycaps: {build.keycap}</section>
+        <div className ="name">{build.name}</div> 
+        <div className='bothDivs'>
+          <div className='mainKeebsDiv'>
+         
+            
+            <section>PCB: {build.pcb} </section>
+            <section>Plate: {build.plate} </section>
+            <section>Switch Type: {build.switch}</section> 
+            <section>Keycaps: {build.keycap}</section>
+            <div className = "removeButton"><Button sx={{ width: '150px', color: 'rgb(65, 91, 152)'}} variant="outlined" onClick = {() => removeBox(build.build_id)}>Remove Build</Button></div>
+
+          </div>
+          <div className="imageBox">
+            <section>Size: {build.size}</section>
+            <img className="keebPics" src={sizeImages[build.size]}/>          
+          </div>
+        </div>
       </div>
     );
   }

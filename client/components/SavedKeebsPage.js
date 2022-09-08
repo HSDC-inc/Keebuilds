@@ -26,7 +26,7 @@ const fetchBuilds = async () => {
 const SavedKeebsPage = () => {
   const [builds, setBuilds] = React.useState([]);
   const isLoggedIn = useSelector(state => state.setUser.isLoggedIn);
-
+  const username = useSelector(state => state.setUser.username);
   const setter = () => {
     fetchBuilds()
       .then(response => {
@@ -40,7 +40,7 @@ const SavedKeebsPage = () => {
   if (isLoggedIn) {
     return (
       <>
-        <Link to="/">
+        <Link to="/Home">
           <Button sx={{ width: '200px', color: 'rgb(65, 91, 152)' }} variant="outlined">Back</Button>
         </Link>
         <h1>Saved Builds</h1>
@@ -51,7 +51,8 @@ const SavedKeebsPage = () => {
   } else {
     return (
       <>
-        <h2>Nah</h2>
+        {console.log('islogged',isLoggedIn)}
+        <h2>Your username is {username}</h2>
         <h1 className='logo'>SAVED KEEBS PAGE</h1>
         <Link to='/'><Button>Back to Landing Page</Button></Link>
       </>

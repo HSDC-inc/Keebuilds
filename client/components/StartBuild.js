@@ -173,9 +173,11 @@ const StartBuild = () => {
     );
   };
 
+  //<Button sx={{ width: '200px', color: 'rgb(65, 91, 152)' }} variant="outlined" onClick={handleClickOpen}>Start Build</Button>
+  //
   return (
     <div className="startBuild">
-      <Button sx={{ width: '200px', color: 'rgb(65, 91, 152)' }} variant="outlined" onClick={handleClickOpen}>Start Build</Button>
+      <Button onClick={handleClickOpen}><div className='landingLoginButton'>START BUILD</div></Button>
       <Dialog open={open} onClose={handleClose}>
         <DialogTitle>Create a new build</DialogTitle>
         <DialogContent>
