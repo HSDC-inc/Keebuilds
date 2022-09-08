@@ -14,7 +14,7 @@ const generateInnerSelect = (k, v) => {
 const keebuildsController = {};
 
 keebuildsController.getBuildsForSession = (req, res, next) => {
-  console.log(' builds for session: ', req.query);
+  // console.log(' builds for session: ', req.query);
   //get request with /api/saved?username=${username}
   //size, pcb, switch, plate, keycap need to be queried by Joining
   const query = `
@@ -35,7 +35,7 @@ keebuildsController.getBuildsForSession = (req, res, next) => {
   const values = [req.query.username];
   db.query(query, values)
     .then(response => {
-      console.log('inside get builds for session query: ', response.rows);
+      // console.log('inside get builds for session query: ', response.rows);
       res.locals.builds = response.rows;
       return next();
     })
@@ -52,7 +52,7 @@ keebuildsController.getBuildsForSession = (req, res, next) => {
 
 keebuildsController.createBuild = (req, res, next) => {
   const { name, size, pcb, plate, keycap, username } = req.body;
-  console.log(req.body);
+  // console.log(req.body);
   const switches = req.body.switch;
   const values = [name, size, pcb, plate, switches, keycap, username];
   const query = `
@@ -63,7 +63,7 @@ keebuildsController.createBuild = (req, res, next) => {
   ;`;
   db.query(query, values)
     .then(response => {
-      console.log(response);
+      // console.log(response);
       return next();
     })
     .catch(err => {
@@ -81,7 +81,7 @@ keebuildsController.deleteBuild = (req, res, next) => {
   // console.log({query});
   db.query(query, values)
     .then(response => {
-      console.log('inside the db query');
+      // console.log('inside the db query');
       return next();
     })
     .catch(() => errorCreator('deleteBuild', 'Failed to DELETE Build'));
