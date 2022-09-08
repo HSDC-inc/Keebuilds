@@ -7,12 +7,12 @@ const buildRouter = express.Router();
 
 // Post a build to the database
 buildRouter.post('/build', keebuildsController.createBuild, (req, res) => {
-  return res.status(201).json(res.locals.dbResponse);
+  return res.status(201).send('end of buildRouter post, create build');
 });
   
 //Get build from database
 buildRouter.get(
-  '/session/:id',
+  '/saved',
   keebuildsController.getBuildsForSession,
   (req, res) => {
     return res.status(200).json(res.locals.builds);
@@ -20,10 +20,10 @@ buildRouter.get(
 );
   
 buildRouter.delete(
-  '/build/:id',
+  '/build',
   keebuildsController.deleteBuild,
   (req, res) => {
-    return res.status(204).send();
+    return res.status(204).send('end of buildRouter delete, delete build');
   }
 );
 
