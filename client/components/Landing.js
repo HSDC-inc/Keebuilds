@@ -7,7 +7,7 @@ function Landing() {
   return (
     <section className="logSection">
       <div style={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>
-        <h3 className='toto' style={{color:'white'}}>hello :3 welcome to</h3>
+        <h3 className='toto' style={{color:'white'}}>hello :3 welcome</h3>
         <section>
           <h2 className='landingLogo'>
             <section className='staricon'>✦</section>
