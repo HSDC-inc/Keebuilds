@@ -5,7 +5,8 @@ import App from './components/App';
 import './scss/styles.scss';
 import { store } from './redux/store';
 import { Provider } from 'react-redux';
-
+//store passed in for redux toolkit
+//browserrouter enabling react router
 render(
   <BrowserRouter>
     <Provider store = {store}>

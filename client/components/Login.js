@@ -1,3 +1,4 @@
+/* eslint-disable react/no-unescaped-entities */
 import React, { useState } from 'react';
 import { Box, Button, Avatar, TextField, Grid } from '@mui/material';
 import { Link } from 'react-router-dom';
@@ -17,7 +18,6 @@ function Login() {
       .then(response => response.json())
       //true if user exists in database, false if user does not
       .then(verdict => {
-        console.log('login verdict',verdict);
         if (verdict.isLogged) { //if user exists, navigate to homepage
         //set username and isLoggedIn into redux state
           dispatch(changeUserState());

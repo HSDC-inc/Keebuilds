@@ -1,9 +1,9 @@
 import React from 'react';
-import {Button, Perspective} from '@mui/material/';
 import { Link } from 'react-router-dom';
 
 
 function Landing() {
+  //TODO: move inline styling to scss folder
   return (
     <section className="logSection">
       <div style={{display: 'flex', flexDirection:'column', alignItems: 'center'}}>

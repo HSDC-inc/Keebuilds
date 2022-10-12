@@ -26,16 +26,7 @@ app.get('/whateverwewant', (req,res,next)=>{
   res.status(200).sendFile(path.join(__dirname, '/../build/bundle.js'));
 });
 
-
-// app.use('/api/login', loginRouter); // we have to check if a user exists in the database
-
-// app.use('/api/signup', signupRouter); // createa a user and insert into data base
-
-app.use('/api', buildRouter); //
-
-
-
-
+app.use('/api', buildRouter); 
 
 // catch all handler for all unknown routes
 app.use((req, res) => {
