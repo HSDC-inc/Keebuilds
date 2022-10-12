@@ -30,9 +30,6 @@ const options = [
 ];
 
 const StartBuild = () => {
-
-  console.log('StartBuild is rendering');
-
   // saving state of selected build
   const [build, setBuild] = React.useState({
     0: '',
@@ -67,7 +64,6 @@ const StartBuild = () => {
   };
 
   const handleNext = () => {
-    console.log('activeStep:', activeStep);
     // save current selected value to build state when clicking next
     setBuild({
       ...build,
@@ -95,22 +91,21 @@ const StartBuild = () => {
           username: username
         });
 
-      console.log('POST REQUEST: ', {
-        size: build[0],
-        pcb: build[1],
-        plate: build[2],
-        switches: build[3],
-        keycap: build[4],
-        name: build[5],
-        color: 'blue',
-        session: 0,
-        username: username
-      });
+      // console log for testing post request
+      // console.log('POST REQUEST: ', {
+      //   size: build[0],
+      //   pcb: build[1],
+      //   plate: build[2],
+      //   switches: build[3],
+      //   keycap: build[4],
+      //   name: build[5],
+      //   color: 'blue',
+      //   session: 0,
+      //   username: username
+      // });
     }
     // do not put check in parameter, will run with extra post request when build[5] changes back to ''
   }, [build[5]]);
-
-  console.log('build: ', build);
 
   const handleBack = () => {
     setActiveStep(activeStep - 1);
@@ -137,8 +132,6 @@ const StartBuild = () => {
   const handleChange = (event) => {
     setValue(event.target.value);
   };
-
-  console.log('event target value:', value);
 
   const getContent = (activeStep) => {
     // renders radio buttons for each step
@@ -173,8 +166,7 @@ const StartBuild = () => {
     );
   };
 
-  //<Button sx={{ width: '200px', color: 'rgb(65, 91, 152)' }} variant="outlined" onClick={handleClickOpen}>Start Build</Button>
-  //
+
   return (
     <div className="startBuild">
       <Button onClick={handleClickOpen}><div className='landingLoginButton'>START BUILD</div></Button>

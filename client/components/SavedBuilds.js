@@ -10,11 +10,8 @@ import keyboard60 from '../assets/60keyboard.png';
 
 
 const SavedBuilds = ({builds ,setter}) => {
-  // console.log({builds});
-  // console.log('typeof builds is', typeof builds);
-
+  // retrieve id from parent component props, query database to delete at build_id
   const removeBox = (build_id) => {
-    console.log('removing build', build_id);
     axios.delete(`/api/build?build_id=${build_id}`)
       .then(() =>{
         setter();
@@ -28,12 +25,9 @@ const SavedBuilds = ({builds ,setter}) => {
     '65%': keyboard65,
     '60%': keyboard60,
   };
-  //['60%', '65%', '75%', 'TKL', '100%'],
-  //<div className = "removeButton"><Button sx={{ width: '150px', color: 'rgb(65, 91, 152)'}} variant="outlined" onClick = {() => removeBox(build.build_id)}>Remove Build</Button></div>
-  //<Button onClick={handleSubmit}><div className='landingLoginButton'>SUBMIT</div></Button>
+
   const cards = [];
   for(const build of builds) {
-    console.log('image source: ',typeof sizeImages[build.size]);
     cards.push(
       <div className="buildBox">
         <div className ="name">{build.name}</div> 
@@ -56,7 +50,6 @@ const SavedBuilds = ({builds ,setter}) => {
       </div>
     );
   }
-  // console.log('SavedBuilds is rendering');
   return (
     <div className="savedBuilds">
       {cards}

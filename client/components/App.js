@@ -1,11 +1,6 @@
-import React, { useEffect, useState } from 'react';
-// import bongocat from '../assets/bongocat.png';
-import StartBuild from './StartBuild';
-import SavedBuilds from './SavedBuilds';
-
-import SavedBuildsButton from './SavedBuildsButton';
+import React from 'react';
 import '../scss/styles.scss';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import HomePage from './HomePage';
 import SavedKeebsPage from './SavedKeebsPage';
 import Landing from './Landing';
@@ -16,6 +11,7 @@ const App = () => {
 
   return (
     <div>
+      {/* React router boilterplate for dynamic rendering */}
       <Routes>
         <Route path='/' element={<Landing />} />
         <Route path='/signup' element={<Signup />} />

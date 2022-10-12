@@ -1,23 +1,18 @@
 import React from 'react';
-import Button from '@mui/material/Button';
 import '../scss/styles.scss';
 import StartBuild from './StartBuild';
-import SavedBuilds from './SavedBuilds';
 import SavedBuildsButton from './SavedBuildsButton';
 import LogoutButton from './LogoutButton';
-import logo from '../assets/bongocat.png';
-import bongocat from '../assets/bongocatkeyboard.png';
 import { useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import keylogo from '../assets/keylogo.png';
 
 
 const HomePage = () => {
-
+  //Keebuilds home page, if the user is not logged in, the user will be told to login/signup
   const username = useSelector(state => state.setUser.username);
   const isLoggedIn = useSelector(state => state.setUser.isLoggedIn);
 
-  //<img src={bongocat} alt="Bongo Cat" />
   if (isLoggedIn) {
     return (
       <div id="inroot">
