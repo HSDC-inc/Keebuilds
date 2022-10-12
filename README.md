@@ -5,14 +5,19 @@ An application to help you customize your dream keyboard!
 ## Running Keebuilds
 
 1. Install dependencies with 
+             
         npm install
+                
+
 2. Run the application
+
         npm run dev
 
 ## Technolgies
 
 * [React](https://reactjs.org/)
 * [React Router](https://reactrouter.com/en/main)
+* [Redux Toolkit](https://redux-toolkit.js.org/)
 * [Material UI](https://mui.com/)
 * [Webpack](https://webpack.js.org/)
 * [Node](https://nodejs.org/en/)
