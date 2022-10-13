@@ -11,7 +11,7 @@ function Landing() {
         <section>
           <h2 className='landingLogo'>
             <section className='staricon'>✦</section>
-            KEEBUILDS 2.0_
+            KEEBUILDS_
             <section className='staricon'>✦</section>
           </h2>
         </section>

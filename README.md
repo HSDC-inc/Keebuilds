@@ -1,17 +1,13 @@
 # Keebuilds
 
-An application to help you customize your dream keyboard!
+<div style="text-align: center;">
 
-## Running Keebuilds
+![Bongo Cat](./client/assets/bongocatkeyboard.png "Keebuilds Logo")
 
-1. Install dependencies with 
-             
-        npm install
-                
+</div>
 
-2. Run the application
+Consumer friendly web application used to customize and build your niche quality fully operating mechanical keyboard!
 
-        npm run dev
 
 ## Technolgies
 
@@ -24,6 +20,26 @@ An application to help you customize your dream keyboard!
 * [Express](https://expressjs.com/)
 * [Jest](https://jestjs.io/)
 * [Supertest](https://www.npmjs.com/package/supertest)
+
+
+## Features
+
+- Ability to save and delete user builds
+- Secured signup/login 
+- Niche mechanical keyboard selections
+
+## Running Keebuilds
+
+1. Install dependencies with 
+             
+        npm install
+                
+
+2. Run the application
+
+        npm run dev
+
+
 
 ## License
 
