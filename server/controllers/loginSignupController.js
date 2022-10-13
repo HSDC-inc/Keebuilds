@@ -9,6 +9,7 @@ loginSignupController.getUser = async (req, res, next) => {
   try {
     const user = await db.query(command);
     if (user.rows.length) {
+      //use bcrypt to compare hashes without salta
       const validPassword = await bcrypt.compare(
         password,
         user.rows[0].password
