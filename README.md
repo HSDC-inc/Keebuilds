@@ -9,7 +9,7 @@
 Consumer friendly web application used to customize and build your niche quality fully operating mechanical keyboard!
 
 
-## Technolgies
+## Technologies
 
 * [React](https://reactjs.org/)
 * [React Router](https://reactrouter.com/en/main)
